@@ -3,8 +3,10 @@ package com.shirin.myapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
@@ -41,24 +43,27 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     }
 
+    val add = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/TEIDE.JPG/440px-TEIDE.JPG"
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = title[position]
         holder.itemDetail.text = details[position]
+        Glide.with(holder.itemView).load(add).into(holder.itemImage)
         //  holder.itemImage.setImageResource(images[position])
 
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val itemImage = "https://rickandmortyapi.com/api/character"
 
         //   var itemImage : ImageView
         var itemTitle: TextView
         var itemDetail: TextView
+        var itemImage: ImageView
 
         init {
             //   itemImage=itemView.findViewById(R.id.item_image)
             itemTitle = itemView.findViewById(R.id.item_title)
             itemDetail = itemView.findViewById(R.id.item_detail)
+            itemImage = itemView.findViewById(R.id.item_image)
 
             /*  if (itemImage !== null) {
                   Glide.with(this)
