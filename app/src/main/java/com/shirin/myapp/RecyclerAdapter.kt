@@ -42,37 +42,28 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         return title.size
 
     }
-
-    val add = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/TEIDE.JPG/440px-TEIDE.JPG"
+    val add = "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = title[position]
         holder.itemDetail.text = details[position]
         Glide.with(holder.itemView).load(add).into(holder.itemImage)
-        //  holder.itemImage.setImageResource(images[position])
-
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        //   var itemImage : ImageView
         var itemTitle: TextView
         var itemDetail: TextView
         var itemImage: ImageView
 
         init {
-            //   itemImage=itemView.findViewById(R.id.item_image)
             itemTitle = itemView.findViewById(R.id.item_title)
             itemDetail = itemView.findViewById(R.id.item_detail)
             itemImage = itemView.findViewById(R.id.item_image)
-
             /*  if (itemImage !== null) {
                   Glide.with(this)
                       .load(itemImage)
                       .into(itemView.findViewById(R.id.item_image))
-              }
-  */
-
-
+              }*/
         }
 
     }
