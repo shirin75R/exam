@@ -25,21 +25,20 @@ class MainActivity : AppCompatActivity() {
 
         layoutManager = LinearLayoutManager(this)
         recyclerRick.layoutManager = layoutManager // better only define once recycler view in class similar adapter
-        adapter = RecyclerAdapter()
-        recyclerRick.adapter = adapter
+//        adapter = RecyclerAdapter()
+//        recyclerRick.adapter = adapter
 
 
 
         val  apiInterface= ApiInterface.create().getCharacter()
-        apiInterface.enqueue(object : Callback<List<QuoteList>>{
-            override fun onResponse(call: Call<List<QuoteList>>?, response: Response<List<QuoteList>>?) {
+        apiInterface.enqueue(object : Callback<QuoteList>{
 
-                if(response?.body() != null)
-                    adapter.set(response.body()!!)
+            override fun onResponse(call: Call<QuoteList>, response: Response<QuoteList>) {
+                val a= 4
             }
 
-            override fun onFailure(call: Call<List<QuoteList>>?, t: Throwable?) {
-
+            override fun onFailure(call: Call<QuoteList>, t: Throwable) {
+            val e= 3
             }
         })
 
